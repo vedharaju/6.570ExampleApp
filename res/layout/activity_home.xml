@@ -61,6 +61,7 @@
         android:contentDescription="Get started with this button"
         android:text="Get Started"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:id="@+id/start_button" />
 
 </LinearLayout>
