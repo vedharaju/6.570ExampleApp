@@ -40,6 +40,9 @@ public class MainActivity extends FragmentActivity implements
 		/**
 		 * look i made a change!
 		 */
+		/**
+		 * look i made a second change!
+		 */
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
