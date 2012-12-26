@@ -14,8 +14,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.vedha.sampleapp.MainActivity"
-            android:label="@string/app_name" >
+            android:name="com.vedha.sampleapp.HomeActivity"
+            android:label="@string/title_activity_blank" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
