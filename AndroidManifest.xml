@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="10"
         android:targetSdkVersion="16" />
 
     <application
@@ -21,6 +21,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vedha.sampleapp.LifecycleActivity"
+            android:label="@string/title_activity_blank" >
+        </activity>
+        <activity
+            android:name="com.vedha.sampleapp.PopupExamplesActivity"
+            android:label="@string/title_activity_blank" >
         </activity>
     </application>
 

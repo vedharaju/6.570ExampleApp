@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Step 1:"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/widget_edittext_dark"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Step 2:"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/widget_edittext_dark"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Select a holiday background"
+        android:text="Select a holiday greeting"
         android:textSize="20sp" />
 
     <TextView
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Step 3:"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/widget_edittext_dark"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Email your holiday card to a friend!"
+        android:text="Send your holiday card to a friend!"
         android:textSize="20sp" />
 
     <Button
