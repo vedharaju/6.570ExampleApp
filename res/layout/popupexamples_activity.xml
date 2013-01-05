@@ -10,8 +10,8 @@
         android:layout_height="75dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:text="Toast"
-        android:textColor="@android:color/tertiary_text_dark"
+        android:text="@string/toast"
+        android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <Button
@@ -20,8 +20,8 @@
         android:layout_height="75dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:text="Dialog"
-        android:textColor="@android:color/tertiary_text_dark"
+        android:text="@string/dialog"
+        android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <Button
@@ -30,8 +30,8 @@
         android:layout_height="75dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:text="Notification"
-        android:textColor="@android:color/tertiary_text_dark"
+        android:text="@string/notification"
+        android:textColor="@android:color/black"
         android:textSize="20sp" />
 
 </LinearLayout>
