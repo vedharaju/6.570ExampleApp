@@ -96,8 +96,8 @@ public class PopupExamplesActivity extends Activity {
 
 			NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
 					c).setSmallIcon(R.drawable.present)
-					.setContentTitle("Card Sent")
-					.setContentText("Your holiday card has been sent!")
+					.setContentTitle("Warm wishes")
+					.setContentText("Happy holidays from Holiday Cards!")
 					.setContentIntent(contentIntent).setAutoCancel(true);
 
 			// // The stack builder object will contain an artificial back stack
@@ -120,6 +120,9 @@ public class PopupExamplesActivity extends Activity {
 
 	}
 
+	/**
+	 * Lifecycle methods
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// Always call the superclass
