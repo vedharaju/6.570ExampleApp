@@ -3,6 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
+    <Button
+        android:id="@+id/toast_example_button"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:text="Toast"
+        android:textColor="@android:color/tertiary_text_dark"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/dialog_example_button"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:text="Dialog"
+        android:textColor="@android:color/tertiary_text_dark"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/notification_example_button"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:text="Notification"
+        android:textColor="@android:color/tertiary_text_dark"
+        android:textSize="20sp" />
 
 </LinearLayout>

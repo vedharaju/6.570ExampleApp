@@ -23,7 +23,7 @@ public class HomeActivity extends Activity {
 	private static final String TAG = "HomeActivity";
 
 	/**
-	 * Activity Listeners
+	 * Activity OnClickListeners
 	 * 
 	 */
 	public class OnClickOpenExample implements OnClickListener {
