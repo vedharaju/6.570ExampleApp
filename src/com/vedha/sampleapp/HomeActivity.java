@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -47,15 +48,15 @@ public class HomeActivity extends Activity {
 			startActivityForResult(intent, RESULT_IMAGE);
 		}
 	}
-	
-	public class OnClickMusic implements OnClickListener{
+
+	public class OnClickMusic implements OnClickListener {
 
 		@Override
 		public void onClick(View v) {
 			Intent i = new Intent(v.getContext(), MP3Activity.class);
 			startActivity(i);
 		}
-		
+
 	}
 
 	/**
@@ -68,19 +69,29 @@ public class HomeActivity extends Activity {
 		Button b = (Button) findViewById(R.id.start_button);
 
 		/* Toggle between the two listeners */
-//		b.setOnClickListener(new OnClickOpenExample());
-		b.setOnClickListener(new OnClickMusic());
-
+		b.setOnClickListener(new OnClickOpenExample());
 		// b.setOnClickListener(new OnClickOpenGallery());
 	}
 
-	
-	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_home, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_music:
+			Intent i = new Intent(this, MP3Activity.class);
+			startActivity(i);
+			break;
+		case R.id.menu_settings:
+			/* Implement later */
+			break;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
@@ -104,6 +115,19 @@ public class HomeActivity extends Activity {
 			// String picturePath contains the path of selected Image
 		}
 	}
+	
+	/**
+	 * Background Music Methods
+	 */
+	
+	public void startService() {
+		Intent i = new Intent(this, MP3Service.class);
+		startService(i);
+	}
+
+	public void stopService() {
+		stopService(new Intent(this, MP3Service.class));
+	}
 
 	/**
 	 * Other Lifecycle Methods
@@ -121,6 +145,7 @@ public class HomeActivity extends Activity {
 		// Always call the superclass
 		super.onResume();
 		Log.v(TAG, "onResume");
+		startService();
 
 	}
 
@@ -129,6 +154,7 @@ public class HomeActivity extends Activity {
 		// Always call the superclass
 		super.onPause();
 		Log.v(TAG, "onPause");
+		stopService();
 
 	}
 
