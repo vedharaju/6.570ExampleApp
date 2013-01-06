@@ -36,6 +36,7 @@ public class MP3Service extends Service {
 			m.stop();
 		}
 		m = MediaPlayer.create(this, R.raw.theme_song);
+		m.setLooping(true);
 		m.start();
 		return super.onStartCommand(intent, flags, startId);
 	}

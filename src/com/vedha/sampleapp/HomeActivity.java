@@ -115,11 +115,11 @@ public class HomeActivity extends Activity {
 			// String picturePath contains the path of selected Image
 		}
 	}
-	
+
 	/**
 	 * Background Music Methods
 	 */
-	
+
 	public void startService() {
 		Intent i = new Intent(this, MP3Service.class);
 		startService(i);
@@ -154,7 +154,6 @@ public class HomeActivity extends Activity {
 		// Always call the superclass
 		super.onPause();
 		Log.v(TAG, "onPause");
-		stopService();
 
 	}
 
@@ -163,6 +162,7 @@ public class HomeActivity extends Activity {
 		// Always call the superclass
 		super.onStop();
 		Log.v(TAG, "onStop");
+		stopService();
 
 	}
 
