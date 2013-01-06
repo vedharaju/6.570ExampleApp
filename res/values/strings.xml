@@ -29,6 +29,12 @@
     <string name="title_section3">Section 3</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section1">Section 1</string>
+
+    <!-- MP3 Activity Strings -->
+    <string name="start_music">Start</string>
+    <string name="stop_music">Stop</string>
+    <string name="menu_music">Music</string>
+
     <!-- Misc Strings -->
 
 </resources>

@@ -47,6 +47,16 @@ public class HomeActivity extends Activity {
 			startActivityForResult(intent, RESULT_IMAGE);
 		}
 	}
+	
+	public class OnClickMusic implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+			Intent i = new Intent(v.getContext(), MP3Activity.class);
+			startActivity(i);
+		}
+		
+	}
 
 	/**
 	 * 
@@ -58,11 +68,14 @@ public class HomeActivity extends Activity {
 		Button b = (Button) findViewById(R.id.start_button);
 
 		/* Toggle between the two listeners */
-		b.setOnClickListener(new OnClickOpenExample());
+//		b.setOnClickListener(new OnClickOpenExample());
+		b.setOnClickListener(new OnClickMusic());
 
 		// b.setOnClickListener(new OnClickOpenGallery());
 	}
 
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

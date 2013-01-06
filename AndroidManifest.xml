@@ -30,6 +30,13 @@
             android:name="com.vedha.sampleapp.PopupExamplesActivity"
             android:label="@string/title_activity_blank" >
         </activity>
+        <activity
+            android:name="com.vedha.sampleapp.MP3Activity"
+            android:label="@string/title_activity_blank" >
+        </activity>
+
+        <service android:name=".MP3Service" >
+        </service>
     </application>
 
 </manifest>
