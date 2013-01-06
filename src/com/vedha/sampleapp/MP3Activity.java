@@ -11,6 +11,7 @@ public class MP3Activity extends Activity {
 
 	private Button startButton;
 	private Button stopButton;
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class MP3Activity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				startService(v);
+				startService();
 			}
 		});
 		stopButton = (Button) findViewById(R.id.stop_music_button);
@@ -29,17 +30,24 @@ public class MP3Activity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				stopService(v);
+				stopService();
 			}
 		});
 	}
 
-	public void startService(View v) {
+	public void startService() {
 		Intent i = new Intent(this, MP3Service.class);
 		startService(i);
 	}
 
-	public void stopService(View v) {
+	public void stopService() {
 		stopService(new Intent(this, MP3Service.class));
 	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		stopService();
+	}
+
 }
