@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.vedha.sampleapp.HomeActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_blank" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +38,12 @@
         </activity>
         <activity
             android:name="com.vedha.sampleapp.MP3Activity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_blank" >
+        </activity>
+        <activity
+            android:name=".CardMakerActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_blank" >
         </activity>
 

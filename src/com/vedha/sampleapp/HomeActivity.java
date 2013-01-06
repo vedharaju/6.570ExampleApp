@@ -95,6 +95,11 @@ public class HomeActivity extends Activity {
 			Toast.makeText(this, "picture selected!", Toast.LENGTH_SHORT)
 					.show();
 			// String picturePath contains the path of selected Image
+			
+			Intent i = new Intent(this, CardMakerActivity.class);
+			i.setData(selectedImage);
+			startActivity(i);
+			Bundle b = new Bundle();
 		}
 	}
 
