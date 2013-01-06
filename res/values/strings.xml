@@ -24,6 +24,7 @@
     <string name="toast">Toast</string>
     <string name="dialog">Dialog</string>
     <string name="notification">Notification</string>
+    <string name="menu_popups">Popups</string>
 
     <!-- Main Activity Strings -->
     <string name="title_section3">Section 3</string>

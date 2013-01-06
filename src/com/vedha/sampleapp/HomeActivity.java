@@ -27,16 +27,6 @@ public class HomeActivity extends Activity {
 	 * Activity OnClickListeners
 	 * 
 	 */
-	public class OnClickOpenExample implements OnClickListener {
-
-		@Override
-		public void onClick(View view) {
-			Context c = view.getContext();
-			Intent intent = new Intent(c, PopupExamplesActivity.class);
-			c.startActivity(intent);
-		}
-
-	}
 
 	public class OnClickOpenGallery implements OnClickListener {
 
@@ -49,16 +39,6 @@ public class HomeActivity extends Activity {
 		}
 	}
 
-	public class OnClickMusic implements OnClickListener {
-
-		@Override
-		public void onClick(View v) {
-			Intent i = new Intent(v.getContext(), MP3Activity.class);
-			startActivity(i);
-		}
-
-	}
-
 	/**
 	 * 
 	 */
@@ -68,9 +48,7 @@ public class HomeActivity extends Activity {
 		setContentView(R.layout.activity_home);
 		Button b = (Button) findViewById(R.id.start_button);
 
-		/* Toggle between the two listeners */
-		b.setOnClickListener(new OnClickOpenExample());
-		// b.setOnClickListener(new OnClickOpenGallery());
+		b.setOnClickListener(new OnClickOpenGallery());
 	}
 
 	@Override
@@ -86,6 +64,10 @@ public class HomeActivity extends Activity {
 		case R.id.menu_music:
 			Intent i = new Intent(this, MP3Activity.class);
 			startActivity(i);
+			break;
+		case R.id.menu_popups:
+			Intent intent = new Intent(this, PopupExamplesActivity.class);
+			startActivity(intent);
 			break;
 		case R.id.menu_settings:
 			/* Implement later */

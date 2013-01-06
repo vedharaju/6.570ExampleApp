@@ -8,5 +8,8 @@
     <item
         android:id="@+id/menu_music"
         android:title="@string/menu_music"/>
+    <item
+        android:id="@+id/menu_popups"
+        android:title="@string/menu_popups"/>
 
 </menu>
