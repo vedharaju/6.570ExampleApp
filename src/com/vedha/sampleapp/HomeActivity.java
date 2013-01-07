@@ -99,7 +99,6 @@ public class HomeActivity extends Activity {
 			Intent i = new Intent(this, CardMakerActivity.class);
 			i.setData(selectedImage);
 			startActivity(i);
-			Bundle b = new Bundle();
 		}
 	}
 
