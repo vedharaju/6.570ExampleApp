@@ -53,14 +53,20 @@ public class HomeActivity extends Activity {
 	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Log.d("HOME", "on create");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		Log.d("HOME", "set content view done");
 		Button b = (Button) findViewById(R.id.start_button);
+		
+		if (b != null) {
+			/* Toggle between the two listeners */
+			b.setOnClickListener(new OnClickOpenExample());
 
-		/* Toggle between the two listeners */
-		b.setOnClickListener(new OnClickOpenExample());
-
-		// b.setOnClickListener(new OnClickOpenGallery());
+			// b.setOnClickListener(new OnClickOpenGallery());
+		} else {
+			Log.d("HOME", "button was null");
+		}
 	}
 
 	@Override
