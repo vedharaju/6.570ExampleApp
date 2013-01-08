@@ -60,6 +60,10 @@
             android:name="com.vedha.sampleapp.PrefsActivity"
             android:label="@string/title_activity_prefs" >
         </activity>
+        <activity
+            android:name="com.vedha.sampleapp.AsyncActivity"
+            android:label="@string/title_activity_async" >
+        </activity>
     </application>
 
 </manifest>

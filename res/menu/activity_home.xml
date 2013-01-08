@@ -11,5 +11,8 @@
     <item
         android:id="@+id/menu_popups"
         android:title="@string/menu_popups"/>
+    <item
+        android:id="@+id/menu_async"
+        android:title="@string/menu_async"/>
 
 </menu>

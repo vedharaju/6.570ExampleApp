@@ -62,6 +62,10 @@ public class HomeActivity extends Activity {
 			Intent prefIntent = new Intent(this, PrefsActivity.class);
 			startActivity(prefIntent);
 			break;
+		case R.id.menu_async:
+			Intent a = new Intent(this, AsyncActivity.class);
+			startActivity(a);
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}

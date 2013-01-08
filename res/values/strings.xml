@@ -40,5 +40,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_prefs">PrefsActivity</string>
+    <string name="title_activity_async">AsyncActivity</string>
+    <string name="menu_async">Async</string>
 
 </resources>
