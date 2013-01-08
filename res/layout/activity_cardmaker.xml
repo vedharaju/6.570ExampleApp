@@ -4,18 +4,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_select_pic"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Selected Image"
+        android:layout_gravity="center_horizontal"
+        android:text="Select Picture"
         android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/imageview_pic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@android:color/background_dark" />
+        android:layout_margin="5dp" />
 
 </LinearLayout>
