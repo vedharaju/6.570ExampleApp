@@ -1,10 +1,8 @@
 package com.vedha.sampleapp;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -12,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Gallery;
+import android.widget.Gallery.LayoutParams;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -109,10 +110,32 @@ public class CardMakerActivity extends Activity {
 			mSelectedImagePath = selectedImagePath;
 			Log.d(TAG, "pic path: " + selectedImagePath);
 			Log.d(TAG, "pic path built in: " + selectedImageUri.getPath());
-			ImageView img = (ImageView) findViewById(R.id.imageview_pic);
-			img.setImageURI(selectedImageUri);
 
-			// img.setImageBitmap(BitmapFactory.decodeFile(selectedImagePath));
+			/* */
+			// String[] id = {MediaStore.Images.Media._ID};
+			// Cursor imageCursor =
+			// managedQuery(MediaStore.Images.Media.INTERNAL_CONTENT_URI, id,
+			// null, null, MediaStore.Images.Media.DATA);
+			// int image_col_index =
+			// imageCursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID);
+			// int count = imageCursor.getCount();
+			// //in a loop the below code goes {
+			// ImageView i = new ImageView(this.getApplicationContext());
+			// imageCursor.moveToPosition(position);
+			// int id = imageCursor.getInt(image_col_index);
+			// i.setImageURI(Uri.withAppendedPath(MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,
+			// ""+ id));
+			// i.setScaleType(ImageView.ScaleType.CENTER_CROP);
+			// i.setLayoutParams(new GridView.LayoutParams(70, 70));
+			// //here I am storing this image i to a list for further use
+			// }//here loop ends
+
+			/* */
+
+			CardView card = (CardView) findViewById(R.id.imageview_pic);
+
+			card.setImageURI(mSelectedImageUri);
+			card.invalidate();
 
 		}
 	}

@@ -38,4 +38,7 @@
 
     <!-- Misc Strings -->
 
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_prefs">PrefsActivity</string>
+
 </resources>

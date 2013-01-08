@@ -59,7 +59,8 @@ public class HomeActivity extends Activity {
 			startActivity(intent);
 			break;
 		case R.id.menu_settings:
-			/* Implement later */
+			Intent prefIntent = new Intent(this, PrefsActivity.class);
+			startActivity(prefIntent);
 			break;
 		}
 		return super.onOptionsItemSelected(item);

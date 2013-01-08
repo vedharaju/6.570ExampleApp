@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PrefsActivity" >
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textColor="@color/maroon"
+        android:textOff="Music Off"
+        android:textOn="Music On"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Default Greeting Color:"
+        android:textColor="@color/maroon"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/radio_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Green" 
+            android:onClick="onRadioButtonClicked"
+            android:textColor="@color/heading_green"/>
+        
+        <RadioButton
+            android:id="@+id/radio_maroon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Red" 
+            android:onClick="onRadioButtonClicked"
+            android:textColor="@color/maroon"/>
+        
+        <RadioButton
+            android:id="@+id/radio_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blue" 
+            android:onClick="onRadioButtonClicked"
+            android:textColor="@color/blue"/>
+    </RadioGroup>
+
+</LinearLayout>

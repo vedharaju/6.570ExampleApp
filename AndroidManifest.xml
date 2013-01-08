@@ -48,13 +48,18 @@
             android:label="@string/title_activity_blank" >
         </activity>
         <activity
-            android:name=".CardMakerActivity"
+            android:name="com.vedha.sampleapp.CardMakerActivity"
             android:configChanges="orientation"
             android:label="@string/title_activity_blank" >
         </activity>
 
-        <service android:name=".MP3Service" >
+        <service android:name="com.vedha.sampleapp.MP3Service" >
         </service>
+
+        <activity
+            android:name="com.vedha.sampleapp.PrefsActivity"
+            android:label="@string/title_activity_prefs" >
+        </activity>
     </application>
 
 </manifest>
