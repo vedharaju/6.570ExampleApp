@@ -1,19 +1,22 @@
 package com.vedha.sampleapp;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Gallery;
-import android.widget.Gallery.LayoutParams;
-import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class CardMakerActivity extends Activity {
@@ -24,6 +27,8 @@ public class CardMakerActivity extends Activity {
 	private static final String TAG = "CardMakerActivity";
 	private Uri mSelectedImageUri = null;
 	private String mSelectedImagePath = null;
+	private String myFileName = null;
+	private Uri myUri = null;
 
 	/**
 	 * Activity OnClickListeners
@@ -52,14 +57,15 @@ public class CardMakerActivity extends Activity {
 
 		@Override
 		public void onClick(View v) {
-			/*
-			 * Create an implicit intent to share the holiday card
-			 */
+			/* Save the card */
+			Uri uri = saveCard();
+
+			/* Create an implicit intent to share the holiday card */
 			Intent share = new Intent(Intent.ACTION_SEND);
 			share.setType("image/*");
-			if (mSelectedImageUri != null) {
+			if (uri != null) {
 				Log.d(TAG, "my uri was not null");
-				share.putExtra(Intent.EXTRA_STREAM, mSelectedImageUri);
+				share.putExtra(Intent.EXTRA_STREAM, uri);
 			} else {
 				Toast.makeText(v.getContext(), "No image found",
 						Toast.LENGTH_SHORT).show();
@@ -69,6 +75,53 @@ public class CardMakerActivity extends Activity {
 			startActivity(Intent.createChooser(share,
 					"Send your card to someone"));
 		}
+	}
+
+	private Uri saveCard() {
+		View card = findViewById(R.id.imageview_pic);
+		/* Get the Bitmap of the CardView */
+		card.setDrawingCacheEnabled(true);
+		Bitmap bitmap = Bitmap.createBitmap(card.getDrawingCache());
+
+		/* Save the bitmap of the image */
+		String file_path = Environment.getExternalStorageDirectory()
+				.getAbsolutePath() + "/HolidayCards";
+		Log.d(TAG, "file_path: " + file_path);
+		File dir = new File(file_path);
+		Log.d(TAG, "dir: " + dir);
+
+		if (!dir.exists()) {
+			Log.d(TAG, "dir did not exist");
+			dir.mkdirs();
+			myFileName = "card_" + System.currentTimeMillis() + ".png";
+			File file = new File(dir, myFileName);
+			Log.d(TAG, "whole file: " + file);
+			FileOutputStream fOut;
+			try {
+				fOut = new FileOutputStream(file);
+
+				bitmap.compress(Bitmap.CompressFormat.PNG, 85, fOut);
+				fOut.flush();
+				fOut.close();
+				Log.d(TAG, "bitmap compressed and should be saved");
+				myUri = Uri.fromFile(file);
+				Log.d(TAG, "my uri: " + myUri);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+				Toast.makeText(this, "file not found exception",
+						Toast.LENGTH_SHORT).show();
+				Log.d(TAG, Log.getStackTraceString(e));
+			} catch (IOException e) {
+				e.printStackTrace();
+				Toast.makeText(this, "IO exception", Toast.LENGTH_SHORT).show();
+				Log.d(TAG, Log.getStackTraceString(e));
+			}
+
+		} else {
+			Log.i(TAG, "dir already exists");
+		}
+
+		return myUri;
 	}
 
 	@Override
@@ -111,26 +164,6 @@ public class CardMakerActivity extends Activity {
 			Log.d(TAG, "pic path: " + selectedImagePath);
 			Log.d(TAG, "pic path built in: " + selectedImageUri.getPath());
 
-			/* */
-			// String[] id = {MediaStore.Images.Media._ID};
-			// Cursor imageCursor =
-			// managedQuery(MediaStore.Images.Media.INTERNAL_CONTENT_URI, id,
-			// null, null, MediaStore.Images.Media.DATA);
-			// int image_col_index =
-			// imageCursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID);
-			// int count = imageCursor.getCount();
-			// //in a loop the below code goes {
-			// ImageView i = new ImageView(this.getApplicationContext());
-			// imageCursor.moveToPosition(position);
-			// int id = imageCursor.getInt(image_col_index);
-			// i.setImageURI(Uri.withAppendedPath(MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,
-			// ""+ id));
-			// i.setScaleType(ImageView.ScaleType.CENTER_CROP);
-			// i.setLayoutParams(new GridView.LayoutParams(70, 70));
-			// //here I am storing this image i to a list for further use
-			// }//here loop ends
-
-			/* */
 
 			CardView card = (CardView) findViewById(R.id.imageview_pic);
 
