@@ -76,49 +76,47 @@ public class PopupExamplesActivity extends Activity {
 
 	}
 
-	public class NotificationOnClick implements OnClickListener {
+public class NotificationOnClick implements OnClickListener {
 
-		/*
-		 * For more info:
-		 * http://developer.android.com/guide/topics/ui/notifiers/
-		 * notifications.html
-		 */
-		private final int NOTIFICATION_ID = 65;
+/*
+	 * For more info:
+	 * http://developer.android.com/guide/topics/ui/notifiers/
+	 * notifications.html
+	 */
+	private final int NOTIFICATION_ID = 65;
 
-		@Override
-		public void onClick(View view) {
-			Context c = view.getContext();
+	@Override
+	public void onClick(View view) {
+		Context c = view.getContext();
 
-			// Creates an explicit intent for an Activity in your app
-			Intent notificationIntent = new Intent(c, HomeActivity.class);
-			PendingIntent contentIntent = PendingIntent.getActivity(c, 0,
-					notificationIntent, Notification.FLAG_AUTO_CANCEL);
+		// Creates an explicit intent for an Activity in your app
+		Intent notificationIntent = new Intent(c, HomeActivity.class);
+		PendingIntent contentIntent = PendingIntent.getActivity(c, 0,
+				notificationIntent, Notification.FLAG_AUTO_CANCEL);
 
-			NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-					c).setSmallIcon(R.drawable.present)
-					.setContentTitle("Warm wishes")
-					.setContentText("Happy holidays from Holiday Cards!")
-					.setContentIntent(contentIntent).setAutoCancel(true);
+		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+				c).setSmallIcon(R.drawable.present)
+				.setContentTitle("Warm wishes")
+				.setContentText("Happy holidays from Holiday Cards!")
+				.setContentIntent(contentIntent).setAutoCancel(true);
 
-			// // The stack builder object will contain an artificial back stack
-			// // for the started Activity. This ensures that navigating
-			// backward
-			// // from the Activity leads out of your application to the Home
-			// // screen.
-			// TaskStackBuilder stackBuilder = TaskStackBuilder.create(c);
-			// // Adds the back stack for the Intent (but not the Intent itself)
-			// stackBuilder.addParentStack(HomeActivity.class);
-			// // Adds the Intent that starts the Activity to the top of the
-			// stack
-			// stackBuilder.addNextIntent(notificationIntent);
+		// The stack builder object will contain an artificial back stack
+		// for the started Activity. This ensures that navigating backward
+		// from the Activity leads out of your application to the Home
+		// screen.
+		TaskStackBuilder stackBuilder = TaskStackBuilder.create(c);
+		// Adds the back stack for the Intent (but not the Intent itself)
+		stackBuilder.addParentStack(HomeActivity.class);
+		// Adds the Intent that starts the Activity to the top of the stack
+		stackBuilder.addNextIntent(notificationIntent);
 
-			NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-			// NOTIFICATION_ID allows you to update the notification later on.
-			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
-
-		}
+		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		// NOTIFICATION_ID allows you to update the notification later on.
+		mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 
 	}
+
+}
 
 	/**
 	 * Lifecycle methods
