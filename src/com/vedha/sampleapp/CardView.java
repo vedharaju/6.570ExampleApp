@@ -39,8 +39,6 @@ public class CardView extends ImageView {
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
-		Log.d(TAG, "canvas height: " + canvas.getHeight());
-		Log.d(TAG, "canvas width: " + canvas.getWidth());
 		int midH = canvas.getHeight() / 2;
 		canvas.drawText("Happy Holidays", 50, midH, this.mTextPaint);
 	}

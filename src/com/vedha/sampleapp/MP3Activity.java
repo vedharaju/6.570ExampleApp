@@ -36,11 +36,13 @@ public class MP3Activity extends Activity {
 	}
 
 	public void startService() {
+		/* Implement this. It should start your service */
 		Intent i = new Intent(this, MP3Service.class);
 		startService(i);
 	}
 
 	public void stopService() {
+		/* Implement this. It should stop your service */
 		stopService(new Intent(this, MP3Service.class));
 	}
 

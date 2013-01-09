@@ -11,7 +11,9 @@
         android:layout_margin="10dp"
         android:text="Show Progress" >
     </Button>
-
+    
+<!-- Add a ProgressBar here -->
+    
     <ProgressBar
         android:id="@+id/progress"
         style="?android:attr/progressBarStyleHorizontal"

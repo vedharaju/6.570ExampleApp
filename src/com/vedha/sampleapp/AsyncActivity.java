@@ -89,19 +89,26 @@ public class AsyncActivity extends Activity {
 
 	public class onClickTask implements OnClickListener {
 
+		ProgressTask task = null;
+
 		@Override
 		public void onClick(View v) {
-			ProgressTask task = new ProgressTask();
+			
 			switch (v.getId()) {
 			case R.id.button_show:
+				if (task==null){
+				task = new ProgressTask();
 				task.execute(10);
+				}
 				break;
 			case R.id.button_cancel:
+				if (task!=null){
 				task.cancel(true);
+				task = null;
+				}
 				break;
 			}
 		}
-
 	}
 
 	@Override
