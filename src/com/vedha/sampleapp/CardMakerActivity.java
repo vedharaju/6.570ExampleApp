@@ -48,19 +48,12 @@ public class CardMakerActivity extends Activity {
 					bitmap.recycle();
 					bitmap = null;
 				}
-				// img.destroyDrawingCache();
 			}
 			Intent intent = new Intent(
 					Intent.ACTION_PICK,
 					android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 			startActivityForResult(intent, RESULT_IMAGE);
 
-			// Intent intent = new Intent();
-			// intent.setType("image/*");
-			// intent.setAction(Intent.ACTION_GET_CONTENT);
-			// startActivityForResult(
-			// Intent.createChooser(intent, "Select Picture"),
-			// RESULT_IMAGE);
 		}
 	}
 
@@ -95,22 +88,21 @@ public class CardMakerActivity extends Activity {
 		Bitmap bitmap = Bitmap.createBitmap(card.getDrawingCache());
 
 		/* Save the bitmap of the image */
-		String file_path = Environment.getExternalStorageDirectory()
-				.getAbsolutePath() + "/HolidayCards";
-		Log.d(TAG, "file_path: " + file_path);
+
+		String externalDir = Environment.getExternalStorageDirectory()
+				.getAbsolutePath();
+		String file_path = externalDir + "/HolidayCards";
 		File dir = new File(file_path);
-		Log.d(TAG, "dir: " + dir);
+		Log.d(TAG, "File directory path: " + dir);
 
 		if (!dir.exists()) {
-			Log.d(TAG, "dir did not exist");
 			dir.mkdirs();
-
-		} else {
-			Log.i(TAG, "dir already exists");
-		}
+		} 
+		
 		myFileName = "card_" + System.currentTimeMillis() + ".png";
 		File file = new File(dir, myFileName);
-		Log.d(TAG, "whole file: " + file);
+		Log.d(TAG, "File path to holiday card: " + file);
+		
 		FileOutputStream fOut;
 		try {
 			fOut = new FileOutputStream(file);
@@ -118,19 +110,14 @@ public class CardMakerActivity extends Activity {
 			bitmap.compress(Bitmap.CompressFormat.PNG, 85, fOut);
 			fOut.flush();
 			fOut.close();
-			Log.d(TAG, "bitmap compressed and should be saved");
+			Log.d(TAG, "Holiday Card bitmap compressed and saved");
 			myUri = Uri.fromFile(file);
-			Log.d(TAG, "my uri: " + myUri);
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			Toast.makeText(this, "file not found exception", Toast.LENGTH_SHORT)
+			Toast.makeText(this, "Exception: check LogCat", Toast.LENGTH_SHORT)
 					.show();
 			Log.d(TAG, Log.getStackTraceString(e));
-		} catch (IOException e) {
-			e.printStackTrace();
-			Toast.makeText(this, "IO exception", Toast.LENGTH_SHORT).show();
-			Log.d(TAG, Log.getStackTraceString(e));
-		}
+		} 
 
 		return myUri;
 	}
@@ -147,19 +134,6 @@ public class CardMakerActivity extends Activity {
 		sendButton.setOnClickListener(new onClickSend());
 	}
 
-	public String getPath(Uri uri) {
-		String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-		Cursor cursor = getContentResolver().query(uri, filePathColumn, null,
-				null, null);
-		cursor.moveToFirst();
-
-		int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-		String picturePath = cursor.getString(columnIndex);
-		cursor.close();
-		return picturePath;
-	}
-
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -169,12 +143,8 @@ public class CardMakerActivity extends Activity {
 
 			Uri selectedImageUri = data.getData();
 			mSelectedImageUri = selectedImageUri;
-			Log.d(TAG, "img uri: " + selectedImageUri);
-			String selectedImagePath = getPath(selectedImageUri);
-			mSelectedImagePath = selectedImagePath;
-			Log.d(TAG, "pic path: " + selectedImagePath);
-			Log.d(TAG, "pic path built in: " + selectedImageUri.getPath());
-
+			Log.d(TAG, "Uri of selected image: " + selectedImageUri);
+		
 			CardView card = (CardView) findViewById(R.id.imageview_pic);
 			try {
 				bitmap = MediaStore.Images.Media.getBitmap(
